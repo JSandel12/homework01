@@ -9,7 +9,6 @@ def encrypt_caesar(plaintext):
     >>> encrypt_caesar("")
     ''
     """
-def encrypt_caesar(plaintext):
     ciphertext = ""
     for c in plaintext:
         if c.isupper():
@@ -34,5 +33,14 @@ def decrypt_caesar(ciphertext):
     >>> decrypt_caesar("")
     ''
     """
-    # PUT YOUR CODE in dir homework01\caesar.py
+    plaintext = ""
+    for c in ciphertext:
+        if c.isupper():
+            original = (ord(c) - ord('A') - 3) % 26 + ord('A')
+            plaintext += chr(original)
+        elif c.islower():
+            original = (ord(c) - ord('a') - 3) % 26 + ord('a')
+            plaintext += chr(original)
+        else:
+            plaintext += c
     return plaintext
